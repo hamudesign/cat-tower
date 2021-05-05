@@ -5,7 +5,7 @@ ThisBuild / versionScheme := Some("semver-spec")
 lazy val commonSettings = Seq(
   scalaVersion := Dependencies.Scala.v12,
   organization := "design.hamu",
-  version := "0.1.1",
+  version := "0.1.2",
   scalacOptions := Seq("-Xlint", "-Ywarn-unused", "-deprecation", "-Ymacro-annotations")
 )
 
@@ -36,6 +36,9 @@ lazy val publishSettings = Seq(
 
 lazy val root = project
   .in(file("."))
+  .settings(
+    publish / skip := true
+  )
   .aggregate(
     plugin
   )
