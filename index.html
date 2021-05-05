@@ -10,24 +10,24 @@ The tool is inspired by <a href="https://docs.haskellstack.org/en/stable/README/
 
 <p>Cat tower is available from Sonatype (and Maven Central) and currently only supports JVM.
 Add the following to your project/plugins.sbt:</p>
-<pre><code class="language-sbt">addSbtPlugin("design.hamu" % "cat-tower" % version)
-</code></pre>
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">addSbtPlugin</span><span class="o">(</span><span class="s">"design.hamu"</span> <span class="o">%</span> <span class="s">"cat-tower"</span> <span class="o">%</span> <span class="n">version</span><span class="o">)</span>
+</code></pre></div></div>
 
-<p>In your <code class="language-plaintext highlighter-rouge">build.sbt</code> enable the plugin specify your cat-tower version:</p>
-<pre><code class="language-sbt">enablePlugins(CatTowerPlugin)
-catTowerVersion := "2.6"
-</code></pre>
+<p>In your <code class="language-plaintext highlighter-rouge">build.sbt</code> enable the plugin and specify your cat-tower version:</p>
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">enablePlugins</span><span class="o">(</span><span class="nc">CatTowerPlugin</span><span class="o">)</span>
+<span class="n">catTowerVersion</span> <span class="o">:=</span> <span class="s">"2.6"</span>
+</code></pre></div></div>
 
 <p>In your <code class="language-plaintext highlighter-rouge">build.sbt</code> use <code class="language-plaintext highlighter-rouge">%!</code> or <code class="language-plaintext highlighter-rouge">%%!</code> to then add dependencies to your project without specifying a version.
 The version for each dependency is automatically set to a version that is compatible with the rest of the cat tower.</p>
-<pre><code class="language-sbt">libraryDependencies ++= Seq(
-  "org.http4s" %%! "http4s-core",
-  "org.typelevel" %%! "cats-core",
-  "org.slf4j" %! "slf4j-api",
-)
-</code></pre>
+<div class="language-scala highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">libraryDependencies</span> <span class="o">++=</span> <span class="nc">Seq</span><span class="o">(</span>
+  <span class="s">"org.http4s"</span> <span class="o">%%!</span> <span class="s">"http4s-core"</span><span class="o">,</span>
+  <span class="s">"org.typelevel"</span> <span class="o">%%!</span> <span class="s">"cats-core"</span><span class="o">,</span>
+  <span class="s">"org.slf4j"</span> <span class="o">%!</span> <span class="s">"slf4j-api"</span><span class="o">,</span>
+<span class="o">)</span>
+</code></pre></div></div>
 <p>In the above example <code class="language-plaintext highlighter-rouge">http4s-core</code>, <code class="language-plaintext highlighter-rouge">cats-core</code>, and <code class="language-plaintext highlighter-rouge">slf4j-api</code> dependency versions used are guaranteed to be compatible.
-To upgrade the set of dependencies upgrade the <code class="language-plaintext highlighter-rouge">catTowerVersion</code>!</p>
+To upgrade the set of dependencies just upgrade the <code class="language-plaintext highlighter-rouge">catTowerVersion</code>!</p>
 </div></div></section></main><footer id="site-footer"><div class="container"><div class="row"><p>Cat Tower is designed and developed by <a href="" target="_blank" rel="noopener noreferrer">cat-tower</a></p></div><div class="row"><div><p>Website built with <a href="https://47degrees.github.io/sbt-microsites/" target="_blank" rel="noopener noreferrer">sbt-microsites</a> - © 2019 <a href="https://www.47deg.com/" target="_blank" rel="noopener noreferrer">47 Degrees</a></p></div></div></div></footer><script src="/cat-tower/highlight/highlight.pack.js"></script><script src="/cat-tower/lunr/lunr.js"></script><script>
 // For all code blocks, copy the language from the containing div
 // to the inner code tag (where hljs expects it to be)
