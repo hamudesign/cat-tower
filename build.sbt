@@ -1,5 +1,6 @@
 import design.hamu.Dependencies
 
+ThisBuild / versionScheme := Some("semver-spec")
 
 lazy val commonSettings = Seq(
   scalaVersion := Dependencies.Scala.v12,
@@ -9,12 +10,9 @@ lazy val commonSettings = Seq(
 )
 
 lazy val publishSettings = Seq(
-  crossSbtVersions := Seq(
-    "1.5.1",
-    "1.4.9",
-    "1.3.9",
-    "1.2.8"
-  ),
+  publishMavenStyle := true,
+  crossSbtVersions := Seq("1.5.1"),
+  crossScalaVersions := Seq(Dependencies.Scala.v12),
   scalacOptions := {
     scalaBinaryVersion.value match {
       case v if v.startsWith("2.12") => Seq("-Ypartial-unification", "-deprecation")
@@ -45,7 +43,6 @@ lazy val plugin = project
   .settings(
     name := "cat-tower",
     sbtPlugin := true,
-    scriptedBatchExecution := false,
     sbtTestDirectory := sourceDirectory.value / "sbt-test",
     commonSettings,
     publishSettings,
@@ -56,14 +53,13 @@ lazy val plugin = project
 
 lazy val docs = project
   .in(file("docs"))
+  .enablePlugins(MicrositesPlugin)
   .settings(
-    name := "cat-tower-docs",
+    name := "Cat Tower",
     micrositeName := "Cat Tower",
-    micrositeCompilingDocsTool := WithTut,
     micrositeBaseUrl := "cat-tower",
     micrositeHomepage := "https://hamudesign.github.io/sphcat-towerynx/",
     micrositeHighlightTheme := "atom-one-light",
-    git.remoteRepo := "https://github.com/hamudesign/cat-tower.git"
+    git.remoteRepo := "https://github.com/hamudesign/cat-tower.git",
+    mdocIn := baseDirectory.value / "src" / "main" / "mdoc",
   )
-  .enablePlugins(MicrositesPlugin)
-
