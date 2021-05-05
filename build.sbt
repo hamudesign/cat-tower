@@ -12,6 +12,7 @@ lazy val commonSettings = Seq(
 lazy val publishSettings = Seq(
   coverageMinimum := 75,
   coverageFailOnMinimum := true,
+  Test / testOptions += Tests.Argument(TestFrameworks.ScalaTest, "-u", "test-results", "-oD"),
   publishMavenStyle := true,
   crossSbtVersions := Seq("1.5.1"),
   crossScalaVersions := Seq(Dependencies.Scala.v12),
