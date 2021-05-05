@@ -36,6 +36,9 @@ lazy val publishSettings = Seq(
 
 lazy val root = project
   .in(file("."))
+  .settings(
+    publish / skip := true
+  )
   .aggregate(
     plugin
   )
