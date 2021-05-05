@@ -10,6 +10,8 @@ lazy val commonSettings = Seq(
 )
 
 lazy val publishSettings = Seq(
+  coverageMinimum := 75,
+  coverageFailOnMinimum := true,
   publishMavenStyle := true,
   crossSbtVersions := Seq("1.5.1"),
   crossScalaVersions := Seq(Dependencies.Scala.v12),
