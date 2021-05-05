@@ -1,7 +1,12 @@
+---
+layout: home
+title:  "Cat Tower"
+section: "home"
+---
 # Cat Tower
 ![img](https://img.shields.io/badge/maven-0.0.1-brightgreen)
 
-Cat tower is a SBT plugin which aims to make dependency management easier.
+Cat tower is a SBT plugin which aims to make dependency management easier. 
 Compatible dependency versions are organized into sets called cat towers.
 These dependencies can then be upgraded together without compatibility issues by simply upgrading the cat tower version.
 The tool is inspired by [The Haskell Tool Stack](https://docs.haskellstack.org/en/stable/README/).
