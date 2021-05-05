@@ -7,6 +7,10 @@ object Plugins {
     private val version = "2.4.2"
     val core: ModuleID = "org.scalameta" % "sbt-scalafmt" % version
   }
+  object SCoverage {
+    private val version = "1.7.3"
+    val core: ModuleID = "org.scoverage" % "sbt-scoverage" % version
+  }
   object Microsite {
     private val version = "1.3.4"
     val core: ModuleID = "com.47deg"  % "sbt-microsites" % version
